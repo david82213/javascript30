@@ -21,6 +21,23 @@
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
   <style>
+    /* default values */
+    /* in css, its --variable; in sass, its $variable */
+    :root {
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+
+    .hl{
+      color: var(--base);
+    }
 
     /*
       misc styles, nothing to do with CSS variables
@@ -48,6 +65,17 @@
   </style>
 
   <script>
+    const inputs = document.querySelectorAll('.controls input'); // returns nodelist of elements
+    function handleUpdate(){
+      // dataset contains all data attributes in an object; eg. data-size="px"
+      const suffix = this.dataset.sizing || '';
+      // change the value of the variable with the right suffix
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    }
+
+    // loop each element named "input" in list
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
   </script>
 
 </body>
