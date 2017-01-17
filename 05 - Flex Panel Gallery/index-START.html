@@ -44,7 +44,6 @@
       background-position:center;
       flex: 1; /* to evenly distribute among elements */
       justify-content: center; /* center the contents */
-      align-items: center;
       display: flex;
       flex-direction: column; /* elements are vertical */
     }
@@ -56,6 +55,7 @@
     .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
     .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
 
+    /* Flex Items */
     .panel > * {
       margin:0;
       width: 100%;
@@ -93,6 +93,7 @@
     }
 
     .panel.open {
+      flex: 5;
       font-size:40px;
     }
 
